@@ -1,74 +1,158 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: "Oswald", sans-serif;
 }
 
-nav{
+nav {
     background-color: #2d4490;
     color: white;
     padding: 30px;
 }
 
-nav ul{
+nav ul {
     list-style: none;
     display: flex;
     align-items: center;
-
 }
 
-nav ul #espacamento-logo{
+nav ul #espacamento-logo {
     margin-left: 80px;
 }
 
-nav ul li{
+nav ul li {
     margin-right: 20px;
 }
 
-nav ul li a{
+nav ul li a {
     color: white;
     text-decoration: none;
     font-size: 20px;
     font-family: "Bitcount", sans-serif;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
     text-decoration: underline;
 }
 
-.logo{
+.logo {
     width: 15%;
 }
 
-
-
-body{
+body {
     background-color: #b0daffbb;
 }
 
-.text-principal{
+.text-principal {
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 20px;
     font-size: 50px;
     font-family: "Bitcount", sans-serif;
-    color: #0D5FA6;
+    color: #0d5fa6;
 }
 
-.alinha-card{
+.alinha-card {
     display: flex;
     align-items: center;
     justify-content: center !important;
     align-content: center;
 }
 
-.card{
-    background-color: #0A2C59;
+form {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+}
+
+label{
+    display: flex;
+}
+
+.input-form{
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#button_cadastrar{
+    background-color: #2d4490;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#button_cadastrar:hover {
+    background-color: #3a4e82;
+}
+
+.card {
+    background-color: #0a2c59;
     width: 500px;
-    height: 450px;
     border-radius: 15px;
     margin-top: 15px;
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
     text-align: center;
     color: aliceblue;
+}
+
+.tipo2{
+    display: flex;
+}
+
+#descricao-tipo2{
+    margin-left: 10px;
+    font-size: x-small;
+    color: white;
+    align-items: center;
+    display: flex;
+}
+
+.container {
+    padding: 20px;
+}
+
+.search-form {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-form input {
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-form button {
+    padding: 8px 12px;
+    background-color: #42a5f5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card-listagem {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }

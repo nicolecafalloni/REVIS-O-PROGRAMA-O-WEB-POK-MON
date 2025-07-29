@@ -1,113 +1,70 @@
 <?php
 include_once 'conexao.php';
 
-// Verifica se há uma pesquisa
 $pesquisa = "";
 if (isset($_GET['buscar'])) {
     $pesquisa = trim($_GET['buscar']);
 }
 
-// Prepara a consulta SQL com ou sem filtro
-if ($pesquisa != "") {
-    $sql = "SELECT 
-                nome,
-                tipo,
-                localizacao,
-                DATE_FORMAT(data_registro, '%d/%m/%Y') AS data_registro,
-                vida,
-                ataque,
-                defesa,
-                observacoes
-            FROM cadastro
-            WHERE nome LIKE '%" . $conn->real_escape_string($pesquisa) . "%'";
-} else {
-    $sql = "SELECT 
-                nome,
-                tipo,
-                localizacao,
-                DATE_FORMAT(data_registro, '%d/%m/%Y') AS data_registro,
-                vida,
-                ataque,
-                defesa,
-                observacoes
-            FROM cadastro";
-}
-
-$result = $conn->query($sql);
-// Consulta SQL
 $sql = "SELECT 
             nome,
             tipo,
-            localizacao,
-            DATE_FORMAT(data_registro, '%d/%m/%Y') AS data_registro,
             vida,
             ataque,
-            defesa,
-            observacoes
+            defesa
         FROM cadastro";
 
-$result = $conn->query($sql);
-
-// Verifica se há resultados
-if ($result->num_rows > 0) {
-    echo "<h2>Pokémons Encontrados</h2>";
-    echo "<table border='1' cellpadding='10'>";
-    echo "<tr>
-            <th>Nome</th>
-            <th>Tipo</th>
-            <th>Localização</th>
-            <th>Data do Registro</th>
-            <th>HP</th>
-            <th>Ataque</th>
-            <th>Defesa</th>
-            <th>Observações</th>
-          </tr>";
-
-    // Exibe cada linha
-    while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . htmlspecialchars($row["nome"]) . "</td>";
-        echo "<td>" . htmlspecialchars($row["tipo"]) . "</td>";
-        echo "<td>" . htmlspecialchars($row["localizacao"]) . "</td>";
-        echo "<td>" . $row["data_registro"] . "</td>";
-        echo "<td>" . $row["hp"] . "</td>";
-        echo "<td>" . $row["ataque"] . "</td>";
-        echo "<td>" . $row["defesa"] . "</td>";
-        echo "<td>" . nl2br(htmlspecialchars($row["observacoes"])) . "</td>";
-        echo "</tr>";
-    }
-
-    echo "</table>";
-} else {
-    echo "<script>alert('Nenhum Pokémon encontrado.');</script>";
+if ($pesquisa !== "") {
+    $sql .= " WHERE nome LIKE '%" . $conn->real_escape_string($pesquisa) . "%'";
 }
 
-// Fecha a conexão
-$conn->close();
+$result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
+    <title>Listagem de Pokémons</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bitcount:wght@100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
-    <title>Document</title>
 </head>
 
 <body>
     <nav>
         <ul>
-            <img class="logo" src="img/logo-pokemon.png" alt="">
+            <img class="logo" src="img/logo-pokemon.png" alt="Logo Pokémon">
             <li id="espacamento-logo"><a href="index.php">Home</a></li>
-            <li><a href="php/cadastrarPokemon.php">Cadastro</a></li>
+            <li><a href="php/cadastro.php">Cadastro</a></li>
         </ul>
     </nav>
 
+    <div class="container">
+        <form method="GET" class="search-form">
+            <input type="text" name="buscar" placeholder="Buscar Pokémon pelo nome" value="<?= htmlspecialchars($pesquisa) ?>">
+            <button type="submit">Buscar</button>
+        </form>
+
+        <div class="card-list">
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='card-listagem'>";
+                    echo "<h3>" . htmlspecialchars($row["nome"]) . "</h3>";
+                    echo "<p><strong>Tipo:</strong> " . htmlspecialchars($row["tipo"]) . "</p>";
+                    echo "<p><strong>HP:</strong> " . htmlspecialchars($row["vida"]) . "</p>";
+                    echo "<p><strong>Ataque:</strong> " . htmlspecialchars($row["ataque"]) . "</p>";
+                    echo "<p><strong>Defesa:</strong> " . htmlspecialchars($row["defesa"]) . "</p>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<p>Nenhum Pokémon encontrado.</p>";
+            }
+            $conn->close();
+            ?>
+        </div>
+    </div>
 </body>
 
 </html>
