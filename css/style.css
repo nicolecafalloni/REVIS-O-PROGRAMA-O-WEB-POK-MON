@@ -151,8 +151,6 @@ label {
     gap: 20px;
 }
 
-<<<<<<< HEAD
-=======
 .card-listagem {
     background-color: #f9f9f9;
     border: 1px solid #ddd;
@@ -162,7 +160,6 @@ label {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
->>>>>>> ad74161f316ff045fed2631d548e85aef7d0603c
 .search-container {
     display: flex;
     width: 80%;
@@ -320,4 +317,8 @@ form#form-editar {
 
 #cancelar:hover {
     background-color: #a93131;
+}
+
+img.pokemon-image {
+    width: 100%;
 }

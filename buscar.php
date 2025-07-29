@@ -3,7 +3,7 @@ include_once 'conexao.php';
 
 $pesquisa = isset($_GET['q']) ? trim($_GET['q']) : "";
 
-$sql = "SELECT id, nome, tipo, vida, ataque, defesa FROM cadastro";
+$sql = "SELECT id, nome, tipo, vida, ataque, defesa, imagem FROM cadastro";
 
 if ($pesquisa !== "") {
     $sql .= " WHERE nome LIKE '%" . $conn->real_escape_string($pesquisa) . "%'";
@@ -15,6 +15,9 @@ if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<div class='card-listagem'>";
         echo "<h3>" . htmlspecialchars($row["nome"]) . "</h3>";
+        if (!empty($row["imagem"])) {
+            echo "<img src='data:image/jpeg;base64," . base64_encode($row["imagem"]) . "' alt='" . htmlspecialchars($row["nome"]) . "' class='pokemon-image'>";
+        }
         echo "<p><strong>Tipo:</strong> " . htmlspecialchars($row["tipo"]) . "</p>";
         echo "<p><strong>HP:</strong> " . htmlspecialchars($row["vida"]) . "</p>";
         echo "<p><strong>Ataque:</strong> " . htmlspecialchars($row["ataque"]) . "</p>";

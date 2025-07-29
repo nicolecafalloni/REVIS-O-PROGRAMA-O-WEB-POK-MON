@@ -12,7 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ataque = $_POST['ataque'];
     $defesa = $_POST['defesa'];
     $observacoes = $_POST['observacoes'];
-    $imagem = $_POST['imagem'];
+    $imagem = $_FILES['imagem']['tmp_name'];
+    $imgData = file_get_contents($imagem);
+
 
     // Define tipo2 como NULL se estiver vazio
     $tipo2 = empty($tipo2) ? null : $tipo2;
@@ -21,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssiisss", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes, $imagem);
-
+    $stmt->bind_param("sssssiissb", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes, $imgData);
+    $stmt->send_long_data(9, $imgData);
 
     if ($stmt->execute()) {
         echo "<script>alert('Pokémon cadastrado com sucesso!');</script>";
@@ -70,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <div class="alinha-card">
         <div class="card">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <label for="nome">Nome:</label>
                 <input class="input-form" type="text" id="nome" name="nome" required>
 
@@ -143,8 +145,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <label for="observacoes">Observações:</label>
                 <textarea id="observacoes" name="observacoes"></textarea>
 
-                <label for="imagme">Adicionar imagem:</label>
-                <input type="file" id="imagem" name="imagem" accept=".jpg,.png ">
+                    <label for="imagem">Adicionar imagem:</label>
+                    <input type="file" id="imagem" name="imagem" accept="image/*">
 
                 <button id="button_cadastrar" type="submit">Cadastrar</button>
             </form>
