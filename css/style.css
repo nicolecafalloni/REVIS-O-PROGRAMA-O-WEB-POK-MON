@@ -159,7 +159,6 @@ label{
     border-radius: 8px;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
-<<<<<<< HEAD
 
 .search-container {
     display: flex;
@@ -316,5 +315,3 @@ form#form-editar {
 #cancelar:hover {
   background-color: #a93131;
 }
-=======
->>>>>>> 64f48a7756353ec6f9a2354d920b09d085f19669
