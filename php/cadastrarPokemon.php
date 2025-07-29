@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <ul>
             <img class="logo" src="../img/logo-pokemon.png" alt="">
             <li id="espacamento-logo"><a href="../index.php">Home</a></li>
-            <li><a href="php/cadastrarPokemon.php">Cadastro</a></li>
+            <li><a href="cadastrarPokemon.php">Cadastro</a></li>
         </ul>
     </nav>
     <div class="container">
