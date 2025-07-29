@@ -4,6 +4,43 @@
     font-family: "Oswald", sans-serif;
 }
 
+nav{
+    background-color: #2d4490;
+    color: white;
+    padding: 30px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+}
+
+nav ul #espacamento-logo{
+    margin-left: 80px;
+}
+
+nav ul li{
+    margin-right: 20px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+.logo{
+    width: 15%;
+}
+
+
+
 body{
     background-color: #b0daffbb;
 }
