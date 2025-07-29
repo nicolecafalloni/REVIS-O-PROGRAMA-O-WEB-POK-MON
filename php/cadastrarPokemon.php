@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssiiss", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes);
+    $stmt->bind_param("sssssiiss", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes, $adicionar_imagem);
 
     if ($stmt->execute()) {
         echo "<script>alert('Pokémon cadastrado com sucesso!');</script>";
@@ -140,6 +140,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 <label for="observacoes">Observações:</label>
                 <textarea id="observacoes" name="observacoes"></textarea>
+
+                <label for="imagme">Adicionar imagem:</label>
+                <input type="file" id="imagem" name="imagem" accept=".jpg,.png ">
 
                 <button id="button_cadastrar" type="submit">Cadastrar</button>
             </form>
