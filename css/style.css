@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #b0daffbb;
+}
+
+.text-principal{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 50px;
+    font-family: "Bitcount", sans-serif;
+    color: #0D5FA6;
+}
+
+.alinha-card{
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    align-content: center;
+}
+
+.card{
+    background-color: #0A2C59;
+    width: 500px;
+    height: 450px;
+    border-radius: 15px;
+    margin-top: 15px;
+}
