@@ -74,35 +74,5 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const botoesExcluir = document.querySelectorAll(".btn-excluir");
 
-    botoesExcluir.forEach(function (botao) {
-        botao.addEventListener("click", function () {
-            const id = this.getAttribute("data-id");
 
-            if (confirm("Tem certeza que deseja excluir este Pokémon?")) {
-                fetch("excluir.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded",
-                    },
-                    body: "id=" + encodeURIComponent(id),
-                })
-                .then(response => response.text())
-                .then(data => {
-                    if (data.trim() === "sucesso") {
-                        this.closest(".card-listagem").remove();
-                        alert("Pokémon excluído com sucesso!");
-                    } else {
-                        alert("Erro ao excluir o Pokémon.");
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro:", error);
-                    alert("Erro ao processar a exclusão.");
-                });
-            }
-        });
-    });
-});

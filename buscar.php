@@ -28,7 +28,13 @@ if ($result && $result->num_rows > 0) {
                 data-ataque='" . htmlspecialchars($row["ataque"]) . "'
                 data-defesa='" . htmlspecialchars($row["defesa"]) . "'
             >Editar</button>";
-        echo "<button class='btn-excluir' data-id='" . htmlspecialchars($row["id"]) . "'>Excluir</button>";
+        echo "
+  <form action='excluir.php' method='POST' onsubmit='return confirm(\"Tem certeza que deseja excluir este Pokémon?\");' style='display:inline;'>
+    <input type='hidden' name='id' value='" . htmlspecialchars($row["id"]) . "'>
+    <button type='submit' class='btn-excluir'>Excluir</button>
+  </form>
+";
+
         echo "</div>";
         echo "</div>";
     }

@@ -151,5 +151,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
 </body>
-
+<script src="js/main.js" defer></script>
 </html>

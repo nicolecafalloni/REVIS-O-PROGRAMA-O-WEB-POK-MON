@@ -21,3 +21,4 @@ $conn->close();
 ?>
 
 <link rel="stylesheet" href="css/style.css">
+<script src="js/main.js" defer></script>

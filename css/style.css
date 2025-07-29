@@ -66,18 +66,18 @@ form {
     font-family: "Oswald", sans-serif;
 }
 
-label{
+label {
     display: flex;
 }
 
-.input-form{
+.input-form {
     margin-bottom: 15px;
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-#button_cadastrar{
+#button_cadastrar {
     background-color: #2d4490;
     color: white;
     padding: 10px;
@@ -105,11 +105,11 @@ label{
     font-family: "Oswald", sans-serif;
 }
 
-.tipo2{
+.tipo2 {
     display: flex;
 }
 
-#descricao-tipo2{
+#descricao-tipo2 {
     margin-left: 10px;
     font-size: x-small;
     color: white;
@@ -151,16 +151,6 @@ label{
     gap: 20px;
 }
 
-.card-listagem {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 15px;
-    width: 200px;
-    border-radius: 8px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-}
-<<<<<<< HEAD
-
 .search-container {
     display: flex;
     width: 80%;
@@ -169,20 +159,21 @@ label{
 }
 
 #search {
-  width: 100%;
-  padding: 10px;
-  border: 2px solid #ccc;
-  font-size: 16px;
-  border-radius: 5px;
-  margin-bottom: 15px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .card-listagem {
-  background: #f8f8f8;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    background: #f8f8f8;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    width: 20%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .alinhamento-search {
@@ -223,75 +214,77 @@ button.btn-excluir:hover {
 }
 
 .modal {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 40%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 40%;
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 
-
 .modal h2 {
-  margin-top: 0;
-  font-size: 24px;
-  border-bottom: 2px solid #0077cc;
-  padding-bottom: 8px;
-  margin-bottom: 20px;
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 2px solid #0077cc;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .modal label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #005a9c;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #005a9c;
 }
 
-.modal input[type="text"], 
+.modal input[type="text"],
 .modal input[type="number"] {
-  width: 100%;
-  padding: 8px 10px;
-  margin-bottom: 15px;
-  border: 1.8px solid #0077cc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s ease;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1.8px solid #0077cc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
 }
 
-.modal input[type="text"]:focus, 
+.modal input[type="text"]:focus,
 .modal input[type="number"]:focus {
-  border-color: #004a80;
-  outline: none;
-  box-shadow: 0 0 5px #004a80aa;
+    border-color: #004a80;
+    outline: none;
+    box-shadow: 0 0 5px #004a80aa;
 }
 
 .modal .buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
 }
 
 .modal button {
-  flex: 1;
-  padding: 10px 0;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  font-size: 15px;
-  transition: background-color 0.3s ease;
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
 }
 
 form#form-editar {
@@ -299,22 +292,20 @@ form#form-editar {
 }
 
 #salvar {
-  background-color: #0077cc;
-  color: white;
+    background-color: #0077cc;
+    color: white;
 }
 
 #salvar:hover {
-  background-color: #005fa3;
+    background-color: #005fa3;
 }
 
 #cancelar {
-  background-color: #dd3b3b;
-  color: #e0e0e0;
-  margin-top: 20px;
+    background-color: #dd3b3b;
+    color: #e0e0e0;
+    margin-top: 20px;
 }
 
 #cancelar:hover {
-  background-color: #a93131;
+    background-color: #a93131;
 }
-=======
->>>>>>> 64f48a7756353ec6f9a2354d920b09d085f19669
