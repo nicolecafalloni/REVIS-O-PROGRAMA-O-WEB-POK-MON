@@ -12,15 +12,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $ataque = $_POST['ataque'];
     $defesa = $_POST['defesa'];
     $observacoes = $_POST['observacoes'];
+    $imagem = $_POST['imagem'];
 
     // Define tipo2 como NULL se estiver vazio
     $tipo2 = empty($tipo2) ? null : $tipo2;
 
-    $sql = "INSERT INTO cadastro (nome, tipo, tipo2, localizacao, data_registro, vida, ataque, defesa, observacoes)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO cadastro (nome, tipo, tipo2, localizacao, data_registro, vida, ataque, defesa, observacoes, imagem)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssssiiss", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes, $adicionar_imagem);
+    $stmt->bind_param("sssssiisss", $nome, $tipo, $tipo2, $localizacao, $data_registro, $vida, $ataque, $defesa, $observacoes, $imagem);
+
 
     if ($stmt->execute()) {
         echo "<script>alert('Pokémon cadastrado com sucesso!');</script>";
